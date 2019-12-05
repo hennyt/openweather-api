@@ -90,7 +90,7 @@
 		}
 		if ("weather" in json){
 			$("#forecast").show();
-			$("#tempImg").attr("src","http://openweathermap.org/img/wn/"+json.weather[0].icon+"@2x.png");
+			$("#tempImg").attr("src","https://openweathermap.org/img/wn/"+json.weather[0].icon+"@2x.png");
 			$("#tempImg").attr("alt",json.weather[0].description);
 			$("#tempImg").attr("title",json.weather[0].main);
 		}
