@@ -64,8 +64,11 @@
 
         $.getJSON(query,function(json){
             console.log(JSON.stringify(json));
-						if ("temp" in json.main){
-							$("#temp").html(json.main.temp);
+						if ("temp" in json.main && $("input[value=metric]").is(":checked")){
+							$("#temp").html(json.main.temp + "°C");
+						}
+						else if ($("input[value=imperial]").is(":checked")){
+							$("#temp").html(json.main.temp + "°F");
 						 }
 						else{
 							$("#temp").html("error connecting to API");
@@ -76,15 +79,21 @@
 					else{
 						$("#loc").html("error connecting to API");
 				}
-				if ("temp_max" in json.main){
-					$("#high").html(json.main.temp_max);
+				if ("temp_max" in json.main && $("input[value=metric]").is(":checked")){
+					$("#high").html(json.main.temp_max + "°C");
 				 }
+				else if($("input[value=imperial]").is(":checked")){
+					$("#high").html(json.main.temp_max + "°F");
+				}
 				else{
 					$("#high").html("error connecting to API");
 			}
-			if ("temp_min" in json.main){
-				$("#low").html(json.main.temp_min);
+			if ("temp_min" in json.main && $("input[value=metric]").is(":checked")){
+				$("#low").html(json.main.temp_min + "°C");
 			 }
+			 else if($("input[value=imperial]").is(":checked")){
+				 $("#low").html(json.main.temp_min + "°F");
+			}
 			else{
 				$("#low").html("error connecting to API");
 		}
